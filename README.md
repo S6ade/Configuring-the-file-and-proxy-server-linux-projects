@@ -100,7 +100,7 @@ sudo apt update && sudo apt install -y nginx
 
 ```ini
 http {
-    upstream file_serv {
+    upstream backend {
         server ВМ2:8000;
         server ВМ3:8000;
     }
@@ -108,7 +108,7 @@ http {
     server {
         listen 80;
         location / {
-            proxy_pass http://file_serv;
+            proxy_pass http://backend;
         }
     }
 }
